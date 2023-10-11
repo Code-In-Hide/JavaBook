@@ -18,11 +18,11 @@ public class TextFieldTest implements ActionListener{
 		f = new Frame("Login");
 		f.setSize(450, 130);
 		f.setLayout(null);
-		f.setBackground(Color.gray);
+		f.setBackground(Color.LIGHT_GRAY);
 
 		login = new Button("Login");
 		login.setBackground(Color.CYAN);
-		login.setBounds(375, 35, 60, 50);
+		login.setBounds(370, 35, 60, 50);
 		login.addActionListener(this);
 
 		Label lid = new Label("ID : ", Label.RIGHT);
@@ -31,11 +31,16 @@ public class TextFieldTest implements ActionListener{
 		lpwd.setBounds(10, 60, 75, 25);
 
 		id = new TextField();
-		id.setBounds(90, 35, 250, 20);
+		id.setBounds(90, 35, 250, 22);
+		id.setBackground(Color.lightGray);
+		id.setForeground(Color.DARK_GRAY);
 		pwd = new TextField();
-		pwd.setBounds(90, 60, 250, 20);
+		pwd.setBounds(90, 60, 250, 22);
+		pwd.setBackground(Color.lightGray);
+		pwd.setForeground(Color.DARK_GRAY);
 		trueandfalse = new TextField();
 		trueandfalse.setBackground(Color.pink);
+		trueandfalse.setForeground(Color.blue);
 		trueandfalse.setBounds(20, 90, 410, 20);
 		pwd.setEchoChar('*');
 
