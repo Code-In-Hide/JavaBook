@@ -18,21 +18,22 @@ public class TextFieldTest implements ActionListener{
 		f = new Frame("Login");
 		f.setSize(450, 130);
 		f.setLayout(null);
+		f.setBackground(Color.gray);
 
 		login = new Button("Login");
 		login.setBackground(Color.CYAN);
-		login.setBounds(375, 30, 60, 50);
+		login.setBounds(375, 35, 60, 50);
 		login.addActionListener(this);
 
 		Label lid = new Label("ID : ", Label.RIGHT);
-		lid.setBounds(60, 30, 25, 25);
+		lid.setBounds(60, 35, 25, 25);
 		Label lpwd = new Label("Password : ", Label.RIGHT);
-		lpwd.setBounds(10, 55, 75, 25);
+		lpwd.setBounds(10, 60, 75, 25);
 
 		id = new TextField();
-		id.setBounds(90, 32, 250, 20);
+		id.setBounds(90, 35, 250, 20);
 		pwd = new TextField();
-		pwd.setBounds(90, 57, 250, 20);
+		pwd.setBounds(90, 60, 250, 20);
 		trueandfalse = new TextField();
 		trueandfalse.setBackground(Color.pink);
 		trueandfalse.setBounds(20, 90, 410, 20);
