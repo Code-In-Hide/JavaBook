@@ -12,7 +12,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class TextFieldTest extends WindowAdapter implements ActionListener {
-	private Frame f;
+	private Frame f, mf;
 	private Button login;
 	TextField id;
 	TextField pwd;
@@ -26,6 +26,13 @@ public class TextFieldTest extends WindowAdapter implements ActionListener {
 		f.setLayout(null);
 		f.setBackground(Color.LIGHT_GRAY);
 		f.addWindowListener(this);
+		
+		mf = new Frame("Main");
+		mf.setSize(900, 600);
+		mf.setLayout(null);
+		mf.setBackground(Color.pink);
+		mf.addWindowListener(this);
+		
 
 		login = new Button("Login");
 		login.setBackground(Color.CYAN);
@@ -58,7 +65,7 @@ public class TextFieldTest extends WindowAdapter implements ActionListener {
 		f.add(trueandfalse);
 		f.add(login);
 		f.setVisible(true);
-
+		mf.setVisible(false);
 	}
 
 	public void windowClosing(WindowEvent e) {
@@ -70,6 +77,8 @@ public class TextFieldTest extends WindowAdapter implements ActionListener {
 			ArrayList<MemberVo> ar = dao.list(id.getText());
 			if (ar.size() != 0 && ar.get(0).getPwd().equals(pwd.getText())) {
 				trueandfalse.setText("로그인이 되었습니다.");
+				mf.setVisible(true);
+				f.setVisible(false);
 			} else {
 				trueandfalse.setText("아이디 비밀번호가 틀림");
 			}
