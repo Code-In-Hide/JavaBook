@@ -9,14 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.geom.Area;
 import java.util.ArrayList;
 
 public class TextFieldTest extends WindowAdapter implements ActionListener {
 	private Frame f, mf;
 	private Button login, b1, b2, b3, b4, Register;
-	TextField id;
-	TextField pwd;
-	TextField trueandfalse;
+	TextField id, pwd;
+	Label Lab_1;
 	private MemberDAO dao;
 
 	public TextFieldTest() {
@@ -65,17 +65,16 @@ public class TextFieldTest extends WindowAdapter implements ActionListener {
 		pwd.setBounds(90, 60, 250, 22);
 		pwd.setBackground(Color.lightGray);
 		pwd.setForeground(Color.DARK_GRAY);
-		trueandfalse = new TextField();
-		trueandfalse.setBackground(Color.pink);
-		trueandfalse.setForeground(Color.blue);
-		trueandfalse.setBounds(20, 90, 325, 30);
+		Lab_1 = new Label();
+		Lab_1.setBounds(90, 90, 250, 30);
+		Lab_1.setBackground(Color.lightGray);
 		pwd.setEchoChar('*');
 
 		f.add(lid);
 		f.add(id);
 		f.add(lpwd);
 		f.add(pwd);
-		f.add(trueandfalse);
+		f.add(Lab_1);
 		f.add(login);
 		f.add(Register);
 		f.setVisible(true);
@@ -95,17 +94,17 @@ public class TextFieldTest extends WindowAdapter implements ActionListener {
 			if (!id.getText().equals("") && !pwd.getText().equals("")) {
 				ArrayList<MemberVo> ar = dao.list(id.getText());
 				if (ar.size() != 0 && ar.get(0).getPwd().equals(pwd.getText())) {
-					trueandfalse.setText("로그인이 되었습니다.");
+					Lab_1.setText("로그인이 되었습니다.");
 					mf.setVisible(true);
 					f.setVisible(false);
 				} else {
-					trueandfalse.setText("아이디 비밀번호가 틀림");
+					Lab_1.setText("아이디 비밀번호가 틀림");
 				}
 			} else {
-				trueandfalse.setText("틀렸습니다.");
+				Lab_1.setText("틀렸습니다.");
 			}
 		} else if (e.getActionCommand().equals("Register")) {
-			trueandfalse.setText("지금은 회원가입을 할수 업습니다.");
+			Lab_1.setText("지금은 회원가입을 할수 업습니다.");
 		}
 	}
 
